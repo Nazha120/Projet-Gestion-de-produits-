@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Form devis</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<div class="col-md-6 offset-md-3 p-1">
+			<br>
+			<div class="card">
+				<div class="card-header bg-warning text-white">Ajouter Devis</div>
+				<div class="card-body">
+					<form th:action="@{/admin/save}" method="post">
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="dateDevis" th:value="${devis.dateDevis}" placeholder="DateDevis" />
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control"
+								name="prixDevis" th:value="${devis.prixDevis}" placeholder="PrixDevis" />
+						</div>
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="quantite" th:value="${devis.quantite}"
+								placeholder="Quantite" />
+						</div>
+						<div class="form-group">
+							 <input type="montantTotal" class="form-control"
+								name="montantTotal" th:value="${devis.montantTotal}" placeholder="MontantTotal" />
+						</div>
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

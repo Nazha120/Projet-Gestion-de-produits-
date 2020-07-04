@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>form produit</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<div class="col-md-6 offset-md-3 p-1">
+			<br>
+			<div class="card">
+				<div class="card-header bg-warning text-white">Modifier un produit</div>
+				<div class="card-body">		
+					<form th:action="@{/admin/saveProduit}" method="post">
+						<div class="form-group">
+							<input type="text" class="form-control"
+								name="id" th:value="${produit.id}" placeholder="ID" />
+						</div>  
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="libelle" th:value="${produit.libelle}" placeholder="Libelle" />
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control"
+								name="reference" th:value="${produit.reference}" placeholder="Reference" />
+						</div>
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="prix" th:value="${produit.prix}"
+								placeholder="Prix" />
+						</div>
+						<div class="form-group">
+							<input type="quantitéDisponible" class="form-control"
+								name="quantiteDisponible" th:value="${produit.quantiteDisponible}" placeholder="QuantiteDisponible" />
+						</div>
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="quantiteCritique" th:value="${produit.quantiteCritique}"
+								placeholder="QuantiteCritique" />
+						
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

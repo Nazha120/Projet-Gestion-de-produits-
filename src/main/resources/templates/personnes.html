@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Personnes</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<section layout:fragment="content">
+	<br/>
+		<div class="container">
+			<form th:action="@{/user/personnes}" method="get">
+				<label>Chercher par email :</label> <input type="text" name="motCle">
+				<button class="btn btn-primary">Chercher</button>
+			</form>
+		</div>
+		<br/>
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Tel</th>
+						<th>Email</th>
+						<th>Adresse</th>
+						<th>Ville</th>
+						<th>Type user</th>
+						<th>Supprimer</th>
+						<th>Modifier</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${listePersonnes}">
+						<td th:text="${p.id}"></td>
+						<td th:text="${p.nom}"></td>
+						<td th:text="${p.prenom}"></td>
+						<td th:text="${p.telephone}"></td>
+						<td th:text="${p.email}"></td>
+						<td th:text="${p.adresse}"></td>
+						<td th:text="${p.ville}"></td>
+						<td th:text="${p.typePersonne}"></td>
+						<td><a class="text-danger" th:href="@{/admin/delete(id=${p.id})}">Supprimer</a></td>
+						<td><a th:href="@{/admin/edit(id=${p.id})}">Modifier</a></td>
+				</tbody>
+				   </tr>
+			</table>
+		</div>
+	</section>
+</body>
+</html>

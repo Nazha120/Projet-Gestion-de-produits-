@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Form personne</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<div class="col-md-6 offset-md-3 p-1">
+			<br>
+			<div class="card">
+				<div class="card-header bg-warning text-white">Modifier une personne</div>
+				<div class="card-body">
+					<form th:action="@{/admin/save}" method="post">
+						<div class="form-group">
+							<input type="text" class="form-control"
+								name="id" th:value="${personne.id}" placeholder="ID" />
+						</div>
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="nom" th:value="${personne.nom}" placeholder="Nom" />
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control"
+								name="prenom" th:value="${personne.prenom}" placeholder="Prenom" />
+						</div>
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="telephone" th:value="${personne.telephone}"
+								placeholder="Telephone" />
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control"
+								name="email" th:value="${personne.email}" placeholder="Email" />
+						</div>
+						<div class="form-group">
+							 <input type="text" class="form-control"
+								name="adresse" th:value="${personne.adresse}"
+								placeholder="Adresse" />
+						</div>
+						<div class="form-group">
+						   <input type="text" class="form-control"
+								name="ville" th:value="${personne.ville}" placeholder="Ville" />
+						</div>
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
